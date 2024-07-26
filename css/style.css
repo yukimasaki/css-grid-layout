@@ -1,0 +1,65 @@
+body {
+  padding-top: 5svh;
+}
+
+.__containerAll {
+  display: flex;
+  flex-direction: column;
+  height: 100svh; /* ビュー高さの100%を設定 */
+}
+
+header {
+  flex: 0 0 5svh;
+  display: grid;
+  grid-template-columns:
+    1fr minmax(50px, 400px) minmax(50px, 400px)
+    minmax(50px, 400px) minmax(50px, 400px) 1fr;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.__global-menu {
+  display: flex;
+  align-items: center;
+  grid-column: 2 / 6;
+  justify-content: end;
+}
+
+.__global-menu ul {
+  display: flex;
+}
+
+.__global-menu li {
+  list-style: none;
+  padding: 0 1rem;
+}
+
+main {
+  display: grid; /* 内部もグリッドレイアウトにする */
+  grid-template-columns:
+    1fr minmax(50px, 400px) minmax(50px, 400px)
+    minmax(50px, 400px) minmax(50px, 400px) 1fr;
+  flex: 1; /* 残りのスペースを占める */
+}
+
+div.__hero {
+  grid-column: 1 / -1;
+  background-color: aqua;
+  height: 95svh;
+}
+
+div.__left {
+  grid-column: 2 / 4;
+  background-color: red;
+}
+
+div.__right {
+  grid-column: 4 / 6;
+  background-color: yellow;
+}
+
+footer {
+  background-color: lightgray;
+}
