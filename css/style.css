@@ -1,5 +1,5 @@
 body {
-  padding-top: 5svh;
+  /* padding-top: 5svh; */
 }
 
 .__containerAll {
@@ -18,6 +18,7 @@ header {
   top: 0;
   width: 100%;
   z-index: 999;
+  height: 5svh;
 }
 
 .__global-menu {
@@ -36,12 +37,13 @@ header {
   padding: 0 1rem;
 }
 
-main {
+.__containerMain {
   display: grid; /* 内部もグリッドレイアウトにする */
   grid-template-columns:
     1fr minmax(50px, 400px) minmax(50px, 400px)
     minmax(50px, 400px) minmax(50px, 400px) 1fr;
   flex: 1; /* 残りのスペースを占める */
+  padding-top: 5svh;
 }
 
 div.__hero {
