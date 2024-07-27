@@ -28,7 +28,7 @@
   height: 100%;
   background-color: black;
   animation-name: fadeBottomToUpper;
-  animation-delay: 2s;
+  animation-delay: 3s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
@@ -89,6 +89,53 @@ div.__hero {
   height: 95svh;
 }
 
+.__catchCopyGroup {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  animation-name: fontWhiteToBlack;
+  animation-delay: 0.5s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  text-wrap: nowrap;
+}
+
+@keyframes fontWhiteToBlack {
+  from {
+    color: white;
+  }
+  to {
+    color: black;
+  }
+}
+
+.__companyNameGroup {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 2rem;
+}
+
+.__companyNameEnglish {
+  font-size: 10rem;
+  font-weight: 600;
+}
+
+.__companyNameJapanese {
+  font-size: 2rem;
+  font-weight: 600;
+  align-self: end;
+}
+
+.__companyCatchCopy {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
 div.__left {
   grid-column: 2 / 4;
   background-color: red;
@@ -101,4 +148,32 @@ div.__right {
 
 footer {
   background-color: lightgray;
+}
+
+@media (max-width: 1024px) {
+  .__companyNameEnglish {
+    font-size: 8rem;
+  }
+
+  .__companyNameJapanese {
+    font-size: 1.4rem;
+  }
+
+  .__companyCatchCopy {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .__companyNameEnglish {
+    font-size: 4rem;
+  }
+
+  .__companyNameJapanese {
+    font-size: 0.9rem;
+  }
+
+  .__companyCatchCopy {
+    font-size: 1.2rem;
+  }
 }
