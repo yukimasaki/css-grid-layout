@@ -53,6 +53,7 @@ header {
   width: 100%;
   z-index: 999;
   height: 5svh;
+  backdrop-filter: blur(20px);
 }
 
 .__global-menu {
@@ -92,6 +93,7 @@ div.__hero {
   position: absolute;
   top: 50%;
   left: 50%;
+  z-index: 900;
   transform: translate(-50%, -50%);
   align-items: center;
   animation-name: fontWhiteToBlack;
@@ -132,18 +134,40 @@ div.__hero {
   font-weight: 600;
 }
 
-div.__left {
-  grid-column: 2 / 4;
-  background-color: red;
+.__sectionMain {
+  display: grid;
+  grid-template-columns: inherit;
+  grid-column: 1 / -1;
 }
 
-div.__right {
+.__sectionReverse {
+  flex-direction: row-reverse;
+}
+
+.__left {
+  grid-column: 2 / 4;
+  background-color: red;
+  padding: 1rem;
+}
+
+.__right {
   grid-column: 4 / 6;
   background-color: yellow;
 }
 
+.__imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.__imageContainer img {
+  box-shadow: 20px 20px 1px rgba(100, 100, 100, 0.5);
+}
+
 footer {
   background-color: lightgray;
+  grid-column: 1 / -1;
 }
 
 @media (max-width: 1024px) {
