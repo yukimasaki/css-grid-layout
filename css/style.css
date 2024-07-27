@@ -42,6 +42,7 @@
 
   to {
     transform: translate(100%, 0);
+    display: none;
   }
 }
 
