@@ -5,12 +5,8 @@
   font-family: "Exo 2", sans-serif;
 }
 
-.__font_roboto {
-  font-family: "Roboto", sans-serif;
-}
-
-.__font_notosansjp {
-  font-family: "Roboto", sans-serif;
+body {
+  font-family: "Roboto", "Noto Sans JP", "Yu Gothic", "MS PGothic", sans-serif;
 }
 
 .__containerAll {
