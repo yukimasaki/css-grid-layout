@@ -1,7 +1,7 @@
 .__containerAll {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  height: 100svh; /* ビュー高さの100%を設定 */
+  height: 100svh;
 }
 
 .__containerMainVisual::before {
@@ -60,7 +60,7 @@ header {
 }
 
 .__containerMain {
-  display: grid; /* 内部もグリッドレイアウトにする */
+  display: grid;
   grid-template-columns:
     1fr minmax(50px, 400px) minmax(50px, 400px)
     minmax(50px, 400px) minmax(50px, 400px) 1fr;
