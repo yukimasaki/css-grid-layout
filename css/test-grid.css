@@ -1,0 +1,36 @@
+.__containerAll {
+  display: grid;
+  grid-template-columns: 1fr repeat(4, minmax(0, 400px)) 1fr;
+  grid-template-rows: auto 100svh repeat(3, auto);
+}
+
+header {
+  background-color: rgb(200, 200, 255);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.__hero {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  background-color: rgb(255, 200, 200);
+}
+
+.__subContainer {
+  grid-column: 1 / -1;
+  grid-row: 3 / 5;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.__subContainer section {
+  grid-column: 1 / -1;
+  background-color: rgb(200, 255, 255);
+}
+
+footer {
+  grid-column: 1 / -1;
+  grid-row: 5;
+  background-color: rgb(255, 255, 200);
+}
