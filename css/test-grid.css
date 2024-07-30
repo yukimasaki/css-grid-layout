@@ -1,6 +1,9 @@
 .__containerAll {
   display: grid;
-  grid-template-columns: 1fr repeat(4, minmax(0, 400px)) 1fr;
+  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(0, 350px)) minmax(
+      1rem,
+      1fr
+    );
   grid-template-rows: auto 100svh repeat(3, auto);
 }
 
