@@ -1,17 +1,28 @@
 .__containerAll {
   display: grid;
-  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(0, 350px)) minmax(
+  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(50px, 400px)) minmax(
       1rem,
       1fr
     );
   grid-template-rows: auto 100svh repeat(3, auto);
 }
 
-header {
+nav {
+  display: grid;
+  grid-template-columns: inherit;
   background-color: rgb(200, 200, 255);
   position: fixed;
   top: 0;
   width: 100%;
+
+  & ul {
+    grid-column: 2 / 6;
+    display: flex;
+    gap: 1.5rem;
+    & li {
+      list-style: none;
+    }
+  }
 }
 
 .__hero {
