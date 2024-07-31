@@ -1,3 +1,4 @@
+/* フォント */
 /* Exo 2, Roboto, Noto Sans Japanese */
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
@@ -9,13 +10,33 @@ body {
   font-family: "Roboto", "Noto Sans JP", "Yu Gothic", "MS PGothic", sans-serif;
 }
 
-.__containerAll {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  height: 100svh;
+/* スクロールバー */
+* {
+  /* スクロールバーの太さと背景色 */
+  &::-webkit-scrollbar,
+  &::-webkit-scrollbar-corner {
+    width: 8px;
+    height: 8px;
+    background: transparent;
+  }
+
+  /* 矢印ボタンのスペースを削除 */
+  &::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+  }
+
+  /* ハンドルの最小の長さ、色、角丸半径 */
+  &::-webkit-scrollbar-thumb {
+    min-width: 48px;
+    min-height: 48px;
+    background: lightgray;
+    border-radius: 4px;
+  }
 }
 
-.__containerMainVisual::before {
+/* アニメーション */
+.__anime_mainVisual::before {
   display: block;
   position: absolute;
   top: 0;
@@ -23,15 +44,15 @@ body {
   width: 100%;
   height: 100%;
   background-color: black;
-  animation-name: fadeBottomToUpper;
-  animation-delay: 3s;
+  animation-name: fadeLeftToRight;
+  animation-delay: 4.5s;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.6s;
   content: "";
 }
 
-@keyframes fadeBottomToUpper {
+@keyframes fadeLeftToRight {
   from {
     transform: translate(0, 0);
   }
@@ -42,64 +63,16 @@ body {
   }
 }
 
-header {
-  flex: 0 0 5svh;
-  display: grid;
-  grid-template-columns:
-    1fr minmax(50px, 400px) minmax(50px, 400px)
-    minmax(50px, 400px) minmax(50px, 400px) 1fr;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 999;
-  height: 5svh;
-  backdrop-filter: blur(20px);
-}
-
-.__global-menu {
-  display: flex;
-  align-items: center;
-  grid-column: 2 / 6;
-  justify-content: end;
-}
-
-.__global-menu ul {
-  display: flex;
-}
-
-.__global-menu li {
-  list-style: none;
-  padding: 0 1rem;
-}
-
-.__containerMain {
-  display: grid;
-  grid-template-columns:
-    1fr minmax(50px, 400px) minmax(50px, 400px)
-    minmax(50px, 400px) minmax(50px, 400px) 1fr;
-  grid-column: 1 / -1;
-  padding-top: 5svh;
-}
-
-div.__hero {
-  grid-column: 1 / -1;
-  height: 95svh;
-}
-
-.__catchCopyGroup {
-  width: fit-content;
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 900;
-  transform: translate(-50%, -50%);
-  align-items: center;
+.__anime___catchCopyGroup {
   animation-name: fontWhiteToBlack;
-  animation-delay: 0.5s;
+  animation-delay: 1.5s;
   animation-duration: 3s;
   animation-fill-mode: forwards;
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-wrap: nowrap;
 }
 
@@ -112,88 +85,267 @@ div.__hero {
   }
 }
 
-.__companyNameGroup {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 2rem;
+/* コンテンツ */
+.__containerAll {
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(50px, 400px)) minmax(
+      1rem,
+      1fr
+    );
+  grid-template-rows: auto 100svh repeat(3, auto);
 }
 
-.__companyNameEnglish {
-  font-size: 10rem;
-  font-weight: 600;
-}
-
-.__companyNameJapanese {
-  font-size: 2rem;
-  font-weight: 600;
-  align-self: end;
-}
-
-.__companyCatchCopy {
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-
-.__sectionMain {
+nav {
   display: grid;
   grid-template-columns: inherit;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 0;
+
+  & ul {
+    grid-column: 2 / 6;
+    display: flex;
+    gap: 1.75rem;
+
+    @media (width < 1024px) {
+      display: none;
+    }
+
+    & li {
+      list-style: none;
+    }
+  }
+
+  & .__hamburger {
+    display: none;
+
+    @media (width < 1024px) {
+      display: block;
+      grid-column: 5;
+      justify-self: end;
+    }
+  }
+}
+
+@media (width >= 500px) {
+  .__hamburger {
+    display: none;
+  }
+}
+
+@media (width < 500px) {
+  nav ul {
+    display: none;
+  }
+
+  .__hamburger {
+    grid-column: end;
+  }
+}
+
+.__hero {
   grid-column: 1 / -1;
+  grid-row: 2;
+
+  & .__catchCopyGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    color: white;
+
+    & .__companyNameGroup {
+      display: flex;
+      flex-direction: column;
+
+      & .__companyNameEnglish {
+        font-size: 12rem;
+        font-weight: 600;
+
+        @media (width < 1024px) {
+          font-size: 8rem;
+        }
+
+        @media (width < 500px) {
+          font-size: 4rem;
+        }
+      }
+
+      & .__companyNameJapanese {
+        font-size: 2rem;
+        font-weight: 600;
+        align-self: end;
+
+        @media (width < 1024px) {
+          font-size: 1.4rem;
+        }
+
+        @media (width < 500px) {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    & .__companyCatchCopy {
+      font-size: 4rem;
+      align-self: center;
+
+      @media (width < 1024px) {
+        font-size: 2rem;
+      }
+
+      @media (width < 500px) {
+        font-size: 1.4rem;
+      }
+    }
+  }
 }
 
-.__sectionReverse {
-  flex-direction: row-reverse;
-}
+.__subContainer {
+  grid-column: 1 / -1;
+  grid-row: 3 / 5;
+  display: grid;
+  grid-template-columns: subgrid;
 
-.__left {
-  grid-column: 2 / 4;
-  background-color: red;
-  padding: 1rem;
-}
+  @media (width < 1024px) {
+    grid-template-columns: 1rem 1fr 1rem;
+  }
 
-.__right {
-  grid-column: 4 / 6;
-  background-color: yellow;
-}
+  & section {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: subgrid;
+    padding-bottom: 8rem;
 
-.__imageContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    @media (width < 1024px) {
+      padding-bottom: 4rem;
+    }
 
-.__imageContainer img {
-  box-shadow: 20px 20px 1px rgba(100, 100, 100, 0.5);
+    & img {
+      grid-column: 2 / 4;
+      width: 100%;
+
+      @media (width < 1024px) {
+        grid-column: 2;
+      }
+    }
+
+    & > div {
+      grid-column: 4 / 6;
+      padding: 0 2rem;
+
+      @media (width < 1024px) {
+        grid-column: 2;
+        padding: 0;
+      }
+
+      & .__title {
+        font-size: 6rem;
+        font-weight: 500;
+        padding-bottom: 1rem;
+
+        @media (width < 1024px) {
+          font-size: 4rem;
+          padding-bottom: 0;
+        }
+      }
+
+      & .__description {
+        padding-bottom: 2rem;
+
+        @media (width < 1024px) {
+          padding-bottom: 1rem;
+        }
+      }
+
+      & .__link {
+        width: fit-content;
+
+        & a {
+          display: flex;
+          text-decoration: none;
+          color: black;
+          gap: 1rem;
+          justify-content: start;
+          align-items: center;
+          font-size: 0.9rem;
+
+          & .__linkIcon {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid rgb(184, 184, 184);
+            justify-content: center;
+            align-items: center;
+
+            & svg path {
+              fill: rgb(184, 184, 184);
+            }
+          }
+
+          & .__linkLabel {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
 }
 
 footer {
-  background-color: lightgray;
   grid-column: 1 / -1;
-}
+  grid-row: 5;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8rem;
+  padding: 1.5rem 0;
 
-@media (max-width: 1024px) {
-  .__companyNameEnglish {
-    font-size: 8rem;
+  @media (width < 500px) {
+    padding: 1rem;
   }
 
-  .__companyNameJapanese {
-    font-size: 1.4rem;
+  & > .__containerUpper {
+    display: flex;
+    border-bottom: 1px solid rgb(55, 65, 81);
+    padding-bottom: 1rem;
+    gap: 2rem;
+
+    @media (width < 500px) {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    & div:nth-child(2) {
+      margin-left: 5rem;
+
+      @media (width < 500px) {
+        margin-left: 0;
+      }
+    }
+
+    & div {
+      display: flex;
+      flex-direction: column;
+
+      & > .__companyNameEnglish {
+        font-size: 2.75em;
+      }
+
+      & .__category {
+        font-size: 1.5rem;
+      }
+    }
   }
 
-  .__companyCatchCopy {
-    font-size: 2rem;
-  }
-}
-
-@media (max-width: 500px) {
-  .__companyNameEnglish {
-    font-size: 4rem;
-  }
-
-  .__companyNameJapanese {
-    font-size: 0.9rem;
-  }
-
-  .__companyCatchCopy {
-    font-size: 1.2rem;
+  & .__copyright {
+    padding-top: 0.5rem;
   }
 }
