@@ -1,3 +1,14 @@
+/* Exo 2, Roboto, Noto Sans Japanese */
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Noto+Sans+JP:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+.__font_exo2 {
+  font-family: "Exo 2", sans-serif;
+}
+
+body {
+  font-family: "Roboto", "Noto Sans JP", "Yu Gothic", "MS PGothic", sans-serif;
+}
+
 .__containerAll {
   display: grid;
   grid-template-columns: minmax(1rem, 1fr) repeat(4, minmax(50px, 400px)) minmax(
@@ -29,6 +40,37 @@ nav {
   grid-column: 1 / -1;
   grid-row: 2;
   background-color: rgb(255, 200, 200);
+
+  & .__catchCopyGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: fit-content;
+    height: 100%;
+    justify-content: center;
+    margin: 0 auto;
+
+    & .__companyNameGroup {
+      display: flex;
+      flex-direction: column;
+
+      & .__companyNameEnglish {
+        font-size: 12rem;
+        font-weight: 600;
+      }
+
+      & .__companyNameJapanese {
+        font-size: 2rem;
+        font-weight: 600;
+        align-self: end;
+      }
+    }
+
+    & .__companyCatchCopy {
+      font-size: 4rem;
+      align-self: center;
+    }
+  }
 }
 
 .__subContainer {
