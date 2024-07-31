@@ -245,9 +245,15 @@ nav {
       }
     }
   }
+}
 
-  & section.__reverse {
-    direction: rtl;
+section.__reverse {
+  & > div {
+    grid-column: 2 / 4;
+  }
+
+  & img {
+    grid-column: 4 / 6;
   }
 }
 
