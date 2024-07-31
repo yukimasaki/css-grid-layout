@@ -247,16 +247,6 @@ nav {
   }
 }
 
-section.__reverse {
-  & > div {
-    grid-column: 2 / 4;
-  }
-
-  & img {
-    grid-column: 4 / 6;
-  }
-}
-
 footer {
   grid-column: 1 / -1;
   grid-row: 5;
