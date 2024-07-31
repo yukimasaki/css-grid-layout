@@ -25,11 +25,12 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
+  padding: 1rem 0;
 
   & ul {
     grid-column: 2 / 6;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.75rem;
     & li {
       list-style: none;
     }
