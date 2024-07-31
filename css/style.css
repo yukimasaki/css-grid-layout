@@ -85,6 +85,26 @@ body {
   }
 }
 
+.__anime_fadeRightToLeft {
+  animation-name: fadeRightToLeft;
+  animation-delay: 4.5s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeRightToLeft {
+  from {
+    opacity: 0;
+    transform: translateX(160px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* コンテンツ */
 .__containerAll {
   display: grid;
@@ -100,6 +120,7 @@ nav {
   grid-template-columns: inherit;
   position: fixed;
   top: 0;
+  z-index: 999;
   width: 100%;
   padding: 1rem 0;
 
@@ -201,6 +222,32 @@ nav {
       @media (width < 500px) {
         font-size: 1.4rem;
       }
+    }
+  }
+}
+
+.__containerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  grid-column: 1 / 1;
+  grid-row: 2;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translate(0, -100%);
+  z-index: 900;
+  padding-bottom: 1rem;
+
+  & .__infoItems {
+    display: flex;
+    gap: 1rem;
+    width: fit-content;
+    background-color: white;
+    padding: 0.5rem 1rem;
+
+    @media (width < 500px) {
+      flex-direction: column;
     }
   }
 }
