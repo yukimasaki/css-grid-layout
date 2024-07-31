@@ -31,9 +31,40 @@ nav {
     grid-column: 2 / 6;
     display: flex;
     gap: 1.75rem;
+
+    @media (width < 1024px) {
+      display: none;
+    }
+
     & li {
       list-style: none;
     }
+  }
+
+  & .__hamburger {
+    display: none;
+
+    @media (width < 1024px) {
+      display: block;
+      grid-column: 5;
+      justify-self: end;
+    }
+  }
+}
+
+@media (width >= 500px) {
+  .__hamburger {
+    display: none;
+  }
+}
+
+@media (width < 500px) {
+  nav ul {
+    display: none;
+  }
+
+  .__hamburger {
+    grid-column: end;
   }
 }
 
@@ -58,18 +89,42 @@ nav {
       & .__companyNameEnglish {
         font-size: 12rem;
         font-weight: 600;
+
+        @media (width < 1024px) {
+          font-size: 8rem;
+        }
+
+        @media (width < 500px) {
+          font-size: 4rem;
+        }
       }
 
       & .__companyNameJapanese {
         font-size: 2rem;
         font-weight: 600;
         align-self: end;
+
+        @media (width < 1024px) {
+          font-size: 1.4rem;
+        }
+
+        @media (width < 500px) {
+          font-size: 0.9rem;
+        }
       }
     }
 
     & .__companyCatchCopy {
       font-size: 4rem;
       align-self: center;
+
+      @media (width < 1024px) {
+        font-size: 2rem;
+      }
+
+      @media (width < 500px) {
+        font-size: 1.4rem;
+      }
     }
   }
 }
