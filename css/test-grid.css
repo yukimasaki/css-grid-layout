@@ -159,11 +159,43 @@ nav {
   grid-row: 3 / 5;
   display: grid;
   grid-template-columns: subgrid;
-}
 
-.__subContainer section {
-  grid-column: 1 / -1;
-  background-color: rgb(200, 255, 255);
+  @media (width < 500px) {
+    grid-template-columns: 1rem minmax(50px, 400px) 1rem;
+  }
+
+  & section {
+    grid-column: 1 / -1;
+    background-color: rgb(200, 255, 255);
+    display: grid;
+    grid-template-columns: subgrid;
+    padding-bottom: 8rem;
+
+    @media (width < 1024px) {
+      padding-bottom: 4rem;
+    }
+
+    & img {
+      grid-column: 2 / 4;
+      width: 100%;
+
+      @media (width < 500px) {
+        grid-column: 2;
+      }
+    }
+
+    & div {
+      grid-column: 4 / 6;
+
+      @media (width < 500px) {
+        grid-column: 2;
+      }
+    }
+  }
+
+  & section.__reverse {
+    direction: rtl;
+  }
 }
 
 footer {
